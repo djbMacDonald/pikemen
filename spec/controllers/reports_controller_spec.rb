@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe ReportsController do
+  let(:valid_attributes) {
+    { name:'John', state:'MA', city:'Boston', agency:'Boston Police', month:'05', day:'11', year:'2001', verified: true }
+  }
+  let(:invalid_attributes) {
+    { name: nil, state: nil, city: nil, agency: nil, month: nil, day: nil, year: nil, verified: nil }
+  }
+
   describe 'GET index' do
     it 'has a 200 status code' do
       get :index
@@ -30,6 +37,32 @@ RSpec.describe ReportsController do
     it 'assigns @report' do
       get :new
       expect(assigns(:report)).to be_a_new Report
+    end
+  end
+  describe 'POST create' do
+    context 'with valid attributes' do
+      it 'saves a new report' do
+        expect { post :create, report: valid_attributes }.to change(Report, :count).by 1
+      end
+      it 'assigns @report' do
+        post :create, report: valid_attributes
+        expect(assigns(:report)).to be_a Report
+        expect(assigns(:report)).to be_persisted
+      end
+      it 'redirects to the root route' do
+        post :create, report: valid_attributes
+        expect(response).to redirect_to(root_path)
+      end
+    end
+    context 'with invalid attributes' do
+      it 'assigns @report, but does not save a new report' do
+        post :create, report: invalid_attributes
+        expect(assigns(:report)).to be_a_new Report
+      end
+      it 're-renders the new template' do
+        post :create, report: invalid_attributes
+        expect(response).to render_template 'new'
+      end
     end
   end
 end
