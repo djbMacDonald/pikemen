@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   root 'welcome#index'
-  resources :reports
+  resources :reports, except: [:edit, :update, :destroy]
 end
