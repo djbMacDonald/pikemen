@@ -1,0 +1,18 @@
+As a user when I go to the homepage I will view about text
+As a user when I go to the homepage I will be able to create a report.
+
+As a user when I select create a report I will be brought to the “add report” page.
+As a user when I go to the report page I will be able to create a report that consist of name of deceased, location(city, state) and optionally date of incident and agency involved.
+
+As a user when I create a report I will see an indication that the report is scheduled for validation as I’m redirected to the homepage.
+
+As a user when I click the reports link I will be directed to the list of validated reports.
+As a user when I view the list of validated report I will be presented a way to filter validated report/incidents by state
+As a user when I will be presented a way to filter validated report/incidents by city
+As a user when I will be presented a way to filter validated report/incidents by date
+As a user when I click a filter option I will see only the validated reports in that category.
+
+As a validator I will be able to sign in from the home page
+As a signed in validator when I clicked the un-validated link I will be directed to a list of un-validated reports.
+As a signed in validator when I click the validate button next to a name I will get a message confirming validation of that report.
+As a singed in validator when I validate a report I will be directed to the un-validated reports page and will not see that report.
