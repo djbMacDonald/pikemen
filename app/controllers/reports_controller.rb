@@ -1,4 +1,6 @@
 class ReportsController < ApplicationController
+  before_action :authenticate_user!, only: []
+
   def index
     @reports = Report.where(verified: true)
   end
