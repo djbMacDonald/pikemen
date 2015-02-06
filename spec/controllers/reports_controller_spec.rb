@@ -18,4 +18,18 @@ RSpec.describe ReportsController do
       expect(assigns(:reports)).to eq reports
     end
   end
+  describe 'GET new' do
+    it 'has a 200 status code' do
+      get :new
+      expect(response.status).to eq 200
+    end
+    it 'renders the new template' do
+      get :new
+      expect(response).to render_template('new')
+    end
+    it 'assigns @report' do
+      get :new
+      expect(assigns(:report)).to be_a_new Report
+    end
+  end
 end
