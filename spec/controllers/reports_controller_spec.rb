@@ -13,7 +13,7 @@ RSpec.describe ReportsController do
     end
 
     it 'assigns @reports' do
-      reports = Report.all
+      reports = Report.where(verified: true)
       get :index
       expect(assigns(:reports)).to eq reports
     end

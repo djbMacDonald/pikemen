@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
   def index
-    @reports = Report.all
+    @reports = Report.where(verified: true)
   end
 end
