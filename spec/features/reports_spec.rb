@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.feature 'Managing reports' do
   scenario 'List all verified reports' do
-    Report.create!(name:'John', state:'MA', city:'Boston', agency:'Boston Police', month:'05', day:'11', year:'2001', verified: true)
-    Report.create!(name:'John', state:'MA', city:'Boston', agency:'Boston Police', month:'05', day:'11', year:'2001', verified: true)
-    Report.create!(name:'John', state:'MA', city:'Boston', agency:'Boston Police', month:'05', day:'11', year:'2001', verified: true)
-    Report.create!(name:'John', state:'MA', city:'Boston', agency:'Boston Police', month:'05', day:'11', year:'2001', verified: false)
-    Report.create!(name:'John', state:'MA', city:'Boston', agency:'Boston Police', month:'05', day:'11', year:'2001', verified: false)
+    Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: true)
+    Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: true)
+    Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: true)
+    Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: false)
+    Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: false)
 
     visit '/reports'
 
@@ -19,7 +19,6 @@ RSpec.feature 'Managing reports' do
     fill_in 'Name', with: 'John Doe'
     fill_in 'State', with: 'MA'
     fill_in 'City', with: 'Boston'
-    fill_in 'Agency', with: 'Mass State Police'
     fill_in 'Month', with: 'Feb'
     fill_in 'Day', with: '11'
     fill_in 'Year', with: '2012'

@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.feature 'Managing reports' do
   before(:each) do
     User.create!(email:'fake@fakr.com', password:'fakepassword')
-    Report.create!(name:'John', state:'MA', city:'Boston', agency:'Boston Police', month:'05', day:'11', year:'2001', verified: true)
-    Report.create!(name:'John', state:'MA', city:'Boston', agency:'Boston Police', month:'05', day:'11', year:'2001', verified: true)
-    Report.create!(name:'John', state:'MA', city:'Boston', agency:'Boston Police', month:'05', day:'11', year:'2001', verified: true)
-    Report.create!(name:'John', state:'MA', city:'Boston', agency:'Boston Police', month:'05', day:'11', year:'2001', verified: false)
-    Report.create!(name:'John', state:'MA', city:'Boston', agency:'Boston Police', month:'05', day:'11', year:'2001', verified: false)
+    Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: true)
+    Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: true)
+    Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: true)
+    Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: false)
+    Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: false)
     visit '/users/sign_in'
     fill_in 'Email', with: 'fake@fakr.com'
     fill_in 'Password', with: 'fakepassword'

@@ -7,16 +7,16 @@ RSpec.describe Report do
     end
 
     it 'is invalid without a name' do
-      expect(Report.create(state:'MA', city:'Boston', agency:'Boston Police', month:'05', day:'11', year:'2001')).not_to be_valid
+      expect(Report.create(state:'MA', city:'Boston', month:'05', day:'11', year:'2001')).not_to be_valid
     end
     it 'is invalid without a state' do
-      expect(Report.create(name:'John', city:'Boston', agency:'Boston Police', month:'05', day:'11', year:'2001')).not_to be_valid
+      expect(Report.create(name:'John', city:'Boston', month:'05', day:'11', year:'2001')).not_to be_valid
     end
     it 'is invalid without a city' do
-      expect(Report.create(name:'John', state:'MA', agency:'Boston Police', month:'05', day:'11', year:'2001')).not_to be_valid
+      expect(Report.create(name:'John', state:'MA', month:'05', day:'11', year:'2001')).not_to be_valid
     end
     it 'is valid with a name, state, and city' do
-      expect(Report.create(name:'John', state:'MA', city:'Boston', agency:'Boston Police', month:'05', day:'11', year:'2001')).to be_valid
+      expect(Report.create(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001')).to be_valid
     end
   end
 end

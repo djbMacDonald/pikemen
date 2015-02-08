@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe ReportsController do
   let(:valid_attributes) {
-    { name:'John', state:'MA', city:'Boston', agency:'Boston Police', month:'05', day:'11', year:'2001', verified: true }
+    { name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: true }
   }
   let(:invalid_attributes) {
-    { name: nil, state: nil, city: nil, agency: nil, month: nil, day: nil, year: nil, verified: nil }
+    { name: nil, state: nil, city: nil, month: nil, day: nil, year: nil, verified: nil }
   }
 
   describe 'GET index' do
