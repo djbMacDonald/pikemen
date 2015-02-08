@@ -4,5 +4,6 @@ Rails.application.routes.draw do
     root to: 'reports#index', as: :authenticated_root
   end
   root 'welcome#index'
-  resources :reports, except: [:edit, :update, :destroy]
+  resources :reports, except: [:show, :edit, :update, :destroy]
+  get '/reports/check', to: 'reports#check'
 end

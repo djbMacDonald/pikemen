@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  before_action :authenticate_user!, only: []
+  before_action :authenticate_user!, only: [:check]
 
   def index
     @reports = Report.where(verified: true)
@@ -17,6 +17,10 @@ class ReportsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def check
+    @reports = Report.where(verified: false)
   end
 
 private
