@@ -1,4 +1,6 @@
 <h1>Unvalidated Reports</h1>
 <% @reports.each do |report| %>
-  <p><%= report.name %></p><%= link_to 'Verify', verify_report_path(report) %>
+  <p><%= report.name %></p>
+  <%= link_to 'Verify', verify_report_path(report) %>
+  <%= link_to 'Archive', archive_report_path(report) %>
 <% end %>

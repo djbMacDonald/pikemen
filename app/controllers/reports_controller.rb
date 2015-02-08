@@ -5,6 +5,7 @@ class ReportsController < ApplicationController
   def index
     @reports = Report.where(verified: true)
   end
+
   def new
     @report = Report.new
   end
@@ -21,7 +22,7 @@ class ReportsController < ApplicationController
   end
 
   def check
-    @reports = Report.where(verified: false)
+    @reports = Report.where(verified: false, archived: false)
   end
 
   def verify

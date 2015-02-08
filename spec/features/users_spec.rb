@@ -31,4 +31,9 @@ RSpec.feature 'Managing reports' do
     page.first(:link, 'Verify').click
     expect(page).to have_selector 'p', count: 1
   end
+  scenario 'Archive a report' do
+    click_on 'Validate'
+    page.first(:link, 'Archive').click
+    expect(page).to have_selector 'p', count: 1
+  end
 end
