@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208185300) do
+ActiveRecord::Schema.define(version: 20150208191459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "agencies", force: :cascade do |t|
+    t.string "name"
+    t.string "jurisdiction"
+  end
 
   create_table "reports", force: :cascade do |t|
     t.string  "name"
@@ -24,9 +29,12 @@ ActiveRecord::Schema.define(version: 20150208185300) do
     t.integer "month"
     t.integer "day"
     t.integer "year"
-    t.boolean "verified", default: false
-    t.boolean "archived", default: false
+    t.boolean "verified",  default: false
+    t.boolean "archived",  default: false
+    t.integer "agency_id"
   end
+
+  add_index "reports", ["agency_id"], name: "index_reports_on_agency_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",               default: "", null: false
@@ -45,4 +53,5 @@ ActiveRecord::Schema.define(version: 20150208185300) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  add_foreign_key "reports", "agencies"
 end
