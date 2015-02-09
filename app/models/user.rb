@@ -4,4 +4,5 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :lockable, :timeoutable
   devise :timeoutable, :timeout_in => 15.minutes
+  has_many :reports
 end
