@@ -3,7 +3,12 @@ class ReportsController < ApplicationController
   before_action :set_report, only: [:verify, :archive, :edit, :update, :destroy]
 
   def index
-    @reports = Report.where(verified: true)
+    if (params[:agency] && Agency.all.collect(&:name).include?(params[:agency][:name]))
+      agency = Agency.where(name: params[:agency][:name]).take
+      @reports = Report.where(agency_id: agency.id)
+    else
+      @reports = Report.where(verified: true)
+    end
   end
 
   def new
@@ -32,7 +37,7 @@ class ReportsController < ApplicationController
   def update
     if @report.update_attributes(veri_params)
       flash[:success] = 'Report verified'
-      redirect_to root_path
+      redirect_to reports_check_path
     else
       @agency = Agency.new
       render :edit

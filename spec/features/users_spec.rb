@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Managing reports' do
   before(:each) do
     User.create!(email:'fake@fakr.com', password:'fakepassword')
+    Agency.create!(name: 'FBI', jurisdiction: 'Federal')
     Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: true)
     Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: true)
     Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: true)
@@ -27,8 +28,12 @@ RSpec.feature 'Managing reports' do
   end
   scenario 'Validate a report' do
     click_on 'Validate'
-
     page.first(:link, 'Verify').click
+    select('FBI', from: 'report_agency_id')
+    fill_in 'Month', with: '1'
+    fill_in 'Day', with: '1'
+    fill_in 'Year', with: '1'
+    click_on 'Update Report'
     expect(page).to have_selector 'p', count: 1
   end
   scenario 'Archive a report' do

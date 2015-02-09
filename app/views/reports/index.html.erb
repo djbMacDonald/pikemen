@@ -1,4 +1,8 @@
 <h1>Reports</h1>
+<form>
+<%= select("agency", "name", Agency.all.collect(&:name)) %>
+<input type="submit" value="Filter" />
+</form>
 <% @reports.each do |report| %>
   <p><%= report.name %></p>
 <% end %>
