@@ -5,11 +5,11 @@ RSpec.feature 'Managing reports' do
     User.create!(email:'fake@fakr.com', password:'fakepassword')
     agency = Agency.create!(name: 'FBI', jurisdiction: 'Federal')
     agency2 = Agency.create!(name: 'NYPD', jurisdiction: 'City')
-    Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: true, agency_id: agency.id)
-    Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: true, agency_id: agency2.id)
-    Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: true, agency_id: agency.id)
-    Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: false)
-    Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: false)
+    Report.create!(name:'John', state:'MA', city:'Boston', verified: true, agency_id: agency.id)
+    Report.create!(name:'John', state:'MA', city:'Boston', verified: true, agency_id: agency2.id)
+    Report.create!(name:'John', state:'MA', city:'Boston', verified: true, agency_id: agency.id)
+    Report.create!(name:'John', state:'MA', city:'Boston', verified: false)
+    Report.create!(name:'John', state:'MA', city:'Boston', verified: false)
   end
   scenario 'List all verified reports' do
     visit '/reports'
@@ -29,9 +29,19 @@ RSpec.feature 'Managing reports' do
     fill_in 'Name', with: 'John Doe'
     select('Massachusetts', from: 'report_state')
     fill_in 'City', with: 'Boston'
-    fill_in 'Month', with: 'Feb'
-    fill_in 'Day', with: '11'
-    fill_in 'Year', with: '2012'
+    select('2003', from: 'report_incident_date_1i')
+    select('January', from: 'report_incident_date_2i')
+    select('12', from: 'report_incident_date_3i')
+    click_on 'Create Report'
+
+    expect(page).to have_content(/submitted/i)
+  end
+  scenario 'Create a new report2' do
+    visit 'reports/new'
+
+    fill_in 'Name', with: 'John Doe'
+    select('Massachusetts', from: 'report_state')
+    fill_in 'City', with: 'Boston'
     click_on 'Create Report'
 
     expect(page).to have_content(/submitted/i)

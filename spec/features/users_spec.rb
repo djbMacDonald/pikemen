@@ -4,11 +4,11 @@ RSpec.feature 'Managing reports' do
   before(:each) do
     User.create!(email:'fake@fakr.com', password:'fakepassword')
     Agency.create!(name: 'FBI', jurisdiction: 'Federal')
-    Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: true)
-    Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: true)
-    Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: true)
-    Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: false)
-    Report.create!(name:'John', state:'MA', city:'Boston', month:'05', day:'11', year:'2001', verified: false)
+    Report.create!(name:'John', state:'MA', city:'Boston', verified: true)
+    Report.create!(name:'John', state:'MA', city:'Boston', verified: true)
+    Report.create!(name:'John', state:'MA', city:'Boston', verified: true)
+    Report.create!(name:'John', state:'MA', city:'Boston', verified: false)
+    Report.create!(name:'John', state:'MA', city:'Boston', verified: false)
     visit '/users/sign_in'
     fill_in 'Email', with: 'fake@fakr.com'
     fill_in 'Password', with: 'fakepassword'
@@ -30,9 +30,9 @@ RSpec.feature 'Managing reports' do
     click_on 'Validate'
     page.first(:link, 'Verify').click
     select('FBI', from: 'report_agency_id')
-    fill_in 'Month', with: '1'
-    fill_in 'Day', with: '1'
-    fill_in 'Year', with: '1'
+    select('2003', from: 'report_incident_date_1i')
+    select('January', from: 'report_incident_date_2i')
+    select('12', from: 'report_incident_date_3i')
     click_on 'Update Report'
     expect(page).to have_selector 'p', count: 1
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150209035012) do
+ActiveRecord::Schema.define(version: 20150209215727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,13 +25,11 @@ ActiveRecord::Schema.define(version: 20150209035012) do
     t.string  "name"
     t.string  "state"
     t.string  "city"
-    t.integer "month"
-    t.integer "day"
-    t.integer "year"
-    t.boolean "verified",  default: false
-    t.boolean "archived",  default: false
+    t.boolean "verified",      default: false
+    t.boolean "archived",      default: false
     t.integer "agency_id"
     t.integer "user_id"
+    t.date    "incident_date"
   end
 
   add_index "reports", ["agency_id"], name: "index_reports_on_agency_id", using: :btree

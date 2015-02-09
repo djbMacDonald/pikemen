@@ -8,14 +8,7 @@
 <%= f.label :city %>
 <%= f.text_field :city %>
 
-<%= f.label :month %>
-<%= f.number_field :month %>
-
-<%= f.label :day %>
-<%= f.number_field :day %>
-
-<%= f.label :year %>
-<%= f.number_field :year %>
+<%= date_select :report, :incident_date, include_blank: true, start_year: 2000, end_year: Time.now.year %>
 
 <%= f.submit %>
 

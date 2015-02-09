@@ -46,7 +46,7 @@ class ReportsController < ApplicationController
 
   def destroy
     @report.archived = true
-    @report.save
+    @report.save(validate: false)
     redirect_to :back
   end
 
@@ -57,10 +57,10 @@ private
   end
 
   def report_params
-    params.require(:report).permit(:name, :state, :city, :month, :day, :year)
+    params.require(:report).permit(:name, :state, :city, :incident_date)
   end
 
   def veri_params
-    params.require(:report).permit(:name, :state, :city, :agency_id, :month, :day, :year).merge(verified: true, user_id: current_user.id)
+    params.require(:report).permit(:name, :state, :city, :agency_id, :incident_date).merge(verified: true, user_id: current_user.id)
   end
 end
