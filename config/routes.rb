@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   end
   root 'welcome#index'
     resources :agencies do
-      resources :reports, except: [:show] do
+      resources :reports do
       end
     end
-    resources :reports, except: [:show]
+    resources :reports
   get '/reports/check', to: 'reports#check'
 end

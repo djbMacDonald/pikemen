@@ -29,19 +29,6 @@ RSpec.feature 'Managing reports' do
     fill_in 'Name', with: 'John Doe'
     select('Massachusetts', from: 'report_state')
     fill_in 'City', with: 'Boston'
-    select('2003', from: 'report_incident_date_1i')
-    select('January', from: 'report_incident_date_2i')
-    select('12', from: 'report_incident_date_3i')
-    click_on 'Create Report'
-
-    expect(page).to have_content(/submitted/i)
-  end
-  scenario 'Create a new report2' do
-    visit 'reports/new'
-
-    fill_in 'Name', with: 'John Doe'
-    select('Massachusetts', from: 'report_state')
-    fill_in 'City', with: 'Boston'
     click_on 'Create Report'
 
     expect(page).to have_content(/submitted/i)

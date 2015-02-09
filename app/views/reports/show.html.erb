@@ -1,0 +1,6 @@
+<%= @report.name %>
+<%= @report.state %>
+<%= @report.city %>
+<%= @report.incident_date %>
+<%= Agency.find(@report.agency_id).name %>
+<%= User.find(@report.user_id).username %>
