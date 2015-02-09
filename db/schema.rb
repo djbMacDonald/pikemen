@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20150208191842) do
   enable_extension "plpgsql"
 
   create_table "agencies", force: :cascade do |t|
-    t.string "name"
+    t.text   "name"
     t.string "jurisdiction"
   end
 

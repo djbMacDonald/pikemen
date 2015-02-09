@@ -1,0 +1,11 @@
+<%= form_for @agency do |f| %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :jurisdiction %>
+<%= f.select :jurisdiction, Agency::JURISDICTIONS, prompt: 'Pick one' %>
+
+<%= f.submit %>
+
+<% end %>

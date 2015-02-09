@@ -4,15 +4,10 @@ Rails.application.routes.draw do
     root to: 'reports#index', as: :authenticated_root
   end
   root 'welcome#index'
-    resources :agency do
-      resources :reports, except: [:show, :edit, :update, :destroy] do
+    resources :agencies do
+      resources :reports, except: [:show] do
       end
     end
-    resources :reports, except: [:show, :edit, :update, :destroy] do
-      member do
-        get :verify
-        get :archive
-      end
-    end
+    resources :reports, except: [:show]
   get '/reports/check', to: 'reports#check'
 end

@@ -1,0 +1,27 @@
+<%= form_for @report do |f| %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :state %>
+<%= f.text_field :state %>
+
+<%= f.label :city %>
+<%= f.text_field :city %>
+
+<%= f.collection_select :agency_id, Agency.all, :id, :name, :prompt => "Select an Agency" %>
+
+<%= f.label :month %>
+<%= f.number_field :month %>
+
+<%= f.label :day %>
+<%= f.number_field :day %>
+
+<%= f.label :year %>
+<%= f.number_field :year %>
+
+<%= f.submit %>
+
+<% end %>
+
+<%= render '/agencies/form' %>
