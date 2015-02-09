@@ -27,7 +27,7 @@ RSpec.feature 'Managing reports' do
     visit 'reports/new'
 
     fill_in 'Name', with: 'John Doe'
-    fill_in 'State', with: 'MA'
+    select('Massachusetts', from: 'report_state')
     fill_in 'City', with: 'Boston'
     fill_in 'Month', with: 'Feb'
     fill_in 'Day', with: '11'
