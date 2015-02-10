@@ -12,7 +12,8 @@ class ReportsController < ApplicationController
   end
 
   def show
-
+    @agency = Agency.find(@report.agency_id)
+    @user = User.find(@report.user_id)
   end
 
   def new

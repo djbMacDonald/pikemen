@@ -2,5 +2,5 @@
 <%= @report.state %>
 <%= @report.city %>
 <%= @report.incident_date %>
-<%= Agency.find(@report.agency_id).name %>
-<%= User.find(@report.user_id).username %>
+<%= link_to @agency.name, agency_path(@agency) %>
+<%= link_to @user.username, root_path %>

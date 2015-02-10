@@ -10,6 +10,12 @@ class AgenciesController < ApplicationController
     end
   end
 
+  def show
+    @agency = Agency.find(params[:id])
+  end
+
+  private
+
   def agency_params
     params.require(:agency).permit(:name, :jurisdiction)
   end
