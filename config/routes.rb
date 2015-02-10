@@ -4,10 +4,11 @@ Rails.application.routes.draw do
     root to: 'reports#index', as: :authenticated_root
   end
   root 'welcome#index'
-    resources :agencies do
-      resources :reports do
-      end
+  resources :agencies do
+    resources :reports do
     end
-    resources :reports
+  end
+  resources :reports
   get '/reports/check', to: 'reports#check'
+  get '/users/:id', to: 'users#show', as: 'user'
 end
