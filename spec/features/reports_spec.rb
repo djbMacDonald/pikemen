@@ -29,7 +29,7 @@ RSpec.feature 'Managing reports' do
     fill_in 'Name', with: 'John Doe'
     select('Massachusetts', from: 'report_state')
     fill_in 'City', with: 'Boston'
-    click_on 'Create Report'
+    click_on 'Submit Report'
 
     expect(page).to have_content(/submitted/i)
   end

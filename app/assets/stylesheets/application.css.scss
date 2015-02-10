@@ -13,3 +13,48 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// * {
+//   border: solid blue 1px;
+// }
+
+.main {
+  height: 100px;
+  width: 100%;
+  font-size: 38px;
+}
+
+img {
+  width:35%;
+}
+
+#report_name {
+  width:100%;
+  height:50px;
+  font-size:38px;
+  text-align: center;
+}
+
+#report_city {
+  width: 50%;
+}
+.item {
+  margin-bottom: 20px;
+}
+ .top {
+  font-size: 20px;
+ }
+.entry {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.entry > a {
+  text-decoration: none;
+  color: black;
+}
+.filter {
+  margin-bottom: 20px;
+}

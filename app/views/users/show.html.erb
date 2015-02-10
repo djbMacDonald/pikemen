@@ -1,4 +1,4 @@
 <%= @user.username %>
 <% @user.reports.each do |report| %>
-  <%= report.name %>
+  <%= link_to report.name, report_path(report) %>
 <% end %>

@@ -7,15 +7,41 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if user_signed_in? %>
-  <%= current_user.username %>
-  <%= link_to 'Validate', reports_check_path %>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-<% else %>
-  <%= link_to('Login', new_user_session_path)  %>
-<% end %>
-<%= render 'shared/flash' %>
-<%= yield %>
-
+  <nav class='navbar navbar-default navbar-static-top'>
+    <div class='container'>
+      <div class='navbar-header'>
+        <%= link_to "Project Pikemen", root_path, class: 'navbar-brand'%>
+        <span class='nav navbar-text pull-left'>
+          <% if user_signed_in? %>
+            Logged in as:
+            <%= current_user.username %>
+          <% end %>
+        </span>
+        <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
+        <span class='sr-only'>Toggle Navigation</span>
+          <span class='icon-bar'></span>
+          <span class='icon-bar'></span>
+          <span class='icon-bar'></span>
+        </button>
+      </div>
+      <ul class='nav navbar-nav navbar-right collapse navbar-collapse'>
+        <li><%= link_to 'Report', new_report_path %></li>
+        <li class='nav-divider'></li>
+        <li><%= link_to 'See All', reports_path %></li>
+        <li class='nav-divider'></li>
+        <% if user_signed_in? %>
+          <li><%= link_to 'Validate', reports_check_path %></li>
+          <li class='nav-divider'></li>
+          <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+        <% else %></li>
+          <li><%= link_to('Login', new_user_session_path)  %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+  <div class='container'>
+  <%= render 'shared/flash' %>
+  <%= yield %>
+  </div>
 </body>
 </html>
