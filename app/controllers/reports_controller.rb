@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   before_action :authenticate_user!, only: [:check, :flop]
-  before_action :set_report, only: [:show, :verify, :archive, :edit, :update, :destroy]
+  before_action :set_report, only: [:verify, :archive, :edit, :update, :destroy]
 
   def index
     if (params[:agency] && Agency.all.collect(&:name).include?(params[:agency][:name]))
@@ -9,11 +9,6 @@ class ReportsController < ApplicationController
     else
       @reports = Report.where(verified: true).shuffle
     end
-  end
-
-  def show
-    @agency = Agency.find(@report.agency_id)
-    @user = User.find(@report.user_id)
   end
 
   def new

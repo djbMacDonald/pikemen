@@ -6,7 +6,7 @@ class AgenciesController < ApplicationController
       flash[:success] = 'Your agency has been submitted.'
       redirect_to :back
     else
-      render :new
+      redirect_to :back
     end
   end
 
