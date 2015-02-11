@@ -32,8 +32,8 @@
         <% if user_signed_in? %>
           <li><%= link_to 'Validate', reports_check_path %></li>
           <li class='nav-divider'></li>
-          <li><%= link_to('Log out', destroy_user_session_path, :method => :delete) %>
-        <% else %></li>
+          <li><%= link_to('Log out', destroy_user_session_path, :method => :delete) %></li>
+        <% else %>
           <li><%= link_to('Log in', new_user_session_path)  %></li>
         <% end %>
       </ul>

@@ -1,6 +1,10 @@
-<%= @report.name %>
-<%= @report.state %>
-<%= @report.city %>
-<%= @report.incident_date %>
-<%= link_to @agency.name, agency_path(@agency) %>
+<h1><%= @report.name %></h1>
+<h2><%= @report.city %>, <%= @report.state %></h2>
+Killed on:
+<%= Date::MONTHNAMES[@report.incident_date.month] %>
+<%= @report.incident_date.day %>,
+<%= @report.incident_date.year %><br>
+Killed by:
+<%= link_to @agency.name, agency_path(@agency) %><br>
+Report verified by:
 <%= link_to @user.username, user_path(@user) %>

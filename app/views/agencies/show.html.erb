@@ -1,4 +1,6 @@
-<%= @agency.name %>
+<h2 class='text-center'>The <%= @agency.name %> has killed:</h2>
 <% @agency.reports.each do |report| %>
-  <%= link_to report.name, report_path(report) %>
+  <div class='col-xs-3 entry'>
+    <%= link_to report.name, report_path(report) %>
+  </div>
 <% end %>

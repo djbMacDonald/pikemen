@@ -1,4 +1,6 @@
-<%= @user.username %>
+<h2 class='text-center'>User <%= @user.username %> has validated the following reports:</h2>
 <% @user.reports.each do |report| %>
-  <%= link_to report.name, report_path(report) %>
+  <div class='col-xs-3 entry'>
+    <%= link_to report.name, report_path(report) %>
+  </div>
 <% end %>
