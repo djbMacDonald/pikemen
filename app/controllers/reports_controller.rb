@@ -25,7 +25,7 @@ class ReportsController < ApplicationController
       flash[:success] = 'Your report has been submitted.'
       redirect_to root_path
     else
-      render :new
+      redirect_to action: "new"
     end
   end
 
@@ -39,11 +39,11 @@ class ReportsController < ApplicationController
 
   def update
     if @report.update_attributes(veri_params)
-      flash[:success] = 'Report verified'
+      # flash[:success] = 'Report verified'
       redirect_to reports_check_path
     else
       @agency = Agency.new
-      render :edit
+      redirect_to action: "edit", id: @report.id
     end
   end
 

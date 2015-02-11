@@ -5,10 +5,10 @@
       <%= report.name %>
     </div>
     <div class='col-xs-1'>
-        <%= button_to 'Verify', edit_report_path(report), method: :get, class: 'btn btn-success veri' %>
+        <%= link_to 'Verify', edit_report_path(report), class: 'btn btn-success veri' %>
     </div>
     <div class='col-xs-1'>
-      <%= button_to 'Archive', report, method: :delete, class: 'btn btn-warning veri' %>
+      <%= link_to 'Archive', report, method: :delete, class: 'btn btn-warning veri' %>
     </div>
   </div>
 <% end %>
