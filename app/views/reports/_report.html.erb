@@ -6,13 +6,13 @@
     </h4>
   </div>
   <div id='<%= "collapse_#{object.id}" %>' class="panel-collapse collapse">
-    <div class="panel-body">
+    <div class="panel-body entry">
       <%= object.state %>, <%= object.city %><br>
       Died on: <%= Date::MONTHNAMES[object.incident_date.month] %>
       <%= object.incident_date.day %>,
       <%= object.incident_date.year %><br>
-      Killed by: <%= object.agency.name %>
-      Verified by: <%= object.user.username %>
+      Killed by: <%= link_to object.agency.name, agency_path(object.agency) %><br>
+      Verified by: <%= link_to object.user.username, user_path(object.user) %>
     </div>
   </div>
 </div>

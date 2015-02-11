@@ -58,7 +58,18 @@ img {
 .veri {
   width: 120%;
 }
-.panel-body {
-  font-size: 12px;
+
+.panel-group .panel {
+  border: none;
 }
 
+.panel-group .panel-heading, .panel-body {
+  background-color: #c7c7c7;
+}
+.panel-group .panel-heading {
+  border-radius: 10px 10px 0 0;
+}
+
+.panel-group .panel-body {
+  font-size: 12px;
+}
