@@ -1,6 +1,14 @@
 <h1>Unvalidated Reports</h1>
 <% @reports.each do |report| %>
-  <p><%= report.name %></p>
-  <%= link_to 'Verify', edit_report_path(report) %>
-  <%= link_to 'Archive', report, method: :delete %>
+  <div class='panel row'>
+    <div class='col-xs-2'>
+      <%= report.name %>
+    </div>
+    <div class='col-xs-1'>
+        <%= button_to 'Verify', edit_report_path(report), method: :get, class: 'btn btn-success veri' %>
+    </div>
+    <div class='col-xs-1'>
+      <%= button_to 'Archive', report, method: :delete, class: 'btn btn-warning veri' %>
+    </div>
+  </div>
 <% end %>

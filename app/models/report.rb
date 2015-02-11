@@ -4,5 +4,5 @@ class Report < ActiveRecord::Base
   belongs_to :agency
   belongs_to :user
   validates :name, :state, :city, presence: true
-  validates :name, :state, :city, :incident_date, presence: true, on: :update
+  validates :name, :state, :city, :incident_date, :agency_id, presence: true, on: :update
 end

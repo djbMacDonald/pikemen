@@ -5,7 +5,7 @@
     <% if (params[:agency] && Agency.all.collect(&:name).include?(params[:agency][:name])) %>
       <%= select("agency", "name", Agency.all.collect(&:name), selected: params[:agency][:name]) %>
     <% else %>
-      <%= select("agency", "name", Agency.all.collect(&:name)) %>
+      <%= select("agency", "name", Agency.all.collect(&:name), { include_blank: true }) %>
     <% end %>
     <input type="submit" value="Filter" />
   </form>

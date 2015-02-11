@@ -1,11 +1,18 @@
-<%= form_for @agency do |f| %>
-
-<%= f.label :name %>
-<%= f.text_field :name %>
-
-<%= f.label :jurisdiction %>
-<%= f.select :jurisdiction, Agency::JURISDICTIONS, prompt: 'Pick one' %>
-
-<%= f.submit %>
-
-<% end %>
+<div class='well well-lg col-xs-6'>
+  <h2 class='text-center'>Create Agency (if necessary)</h2>
+  <%= form_for @agency do |f| %>
+  <div class='item row'>
+    <div class='col-xs-6'>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class='col-xs-6'>
+      <%= f.label :jurisdiction %>
+      <%= f.select :jurisdiction, Agency::JURISDICTIONS, prompt: 'Pick one' %>
+    </div>
+  </div>
+  <div class='text-center'>
+    <%= f.submit class: 'btn btn-lg btn-success'%>
+  </div>
+  <% end %>
+</div>

@@ -1,19 +1,33 @@
-<%= form_for @report do |f| %>
+<div class='well well-lg col-xs-6'>
+<h2 class='text-center'>Verify Report</h2>
+  <%= form_for @report do |f| %>
+    <div class='row'>
+      <div class='item top text-center'>
+        <%= f.label :name, 'Name of Deceased' %><br>
+        <%= f.text_field :name %>
+      </div>
+    </div>
 
-<%= f.label :name %>
-<%= f.text_field :name %>
-
-<%= f.select :state, Report::STATES, prompt: 'Pick one' %>
-
-<%= f.label :city %>
-<%= f.text_field :city %>
-
-<%= f.collection_select :agency_id, Agency.all, :id, :name, :prompt => "Select an Agency" %>
-
-<%= date_select :report, :incident_date, include_blank: true, start_year: 2000, end_year: Time.now.year %>
-
-<%= f.submit %>
-
-<% end %>
+    <div class='item row'>
+      <%= f.label :state %>
+      <%= f.select :state, Report::STATES, prompt: 'Pick one' %>
+    </div>
+    <div class='item row'>
+      <%= f.label :city %>
+      <%= f.text_field :city %>
+    </div>
+    <div class='item row'>
+      <%= f.label :incident_date %>
+      <%= date_select :report, :incident_date, include_blank: true, start_year: 2000, end_year: Time.now.year, order: [:month, :day, :year] %>
+    </div>
+    <div class='item row'>
+      <%= f.label :agency_id, 'Agency' %>
+      <%= f.collection_select :agency_id, Agency.all, :id, :name, :prompt => "Select an Agency" %>
+    </div>
+      <div class='text-center'>
+        <%= f.submit 'Submit Report', class: 'btn btn-lg btn-success' %>
+      </div>
+  <% end %>
+</div>
 
 <%= render '/agencies/form' %>
