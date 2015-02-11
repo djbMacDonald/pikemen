@@ -14,28 +14,28 @@
 
 <div class="panel-group" id="accordion">
   <% @reports.each_slice(4) do |reports| %>
-  <div class='row'>
-    <div class='col-xs-3 entry'>
-      <% if reports[0] %>
-        <%= render 'report', object: reports[0] %>
-      <% end %>
+    <div class='row'>
+      <div class='col-xs-3 entry'>
+        <% if reports[0] %>
+          <%= render 'report', object: reports[0] %>
+        <% end %>
+      </div>
+      <div class='col-xs-3 entry'>
+        <% if reports[1] %>
+          <%= render 'report', object: reports[1] %>
+        <% end %>
+      </div>
+      <div class='col-xs-3 entry'>
+        <% if reports[2] %>
+          <%= render 'report', object: reports[2] %>
+        <% end %>
+      </div>
+      <div class='col-xs-3 entry'>
+        <% if reports[2] %>
+          <%= render 'report', object: reports[3] %>
+        <% end %>
+      </div>
     </div>
-    <div class='col-xs-3 entry'>
-      <% if reports[1] %>
-        <%= render 'report', object: reports[1] %>
-      <% end %>
-    </div>
-    <div class='col-xs-3 entry'>
-      <% if reports[2] %>
-        <%= render 'report', object: reports[2] %>
-      <% end %>
-    </div>
-    <div class='col-xs-3 entry'>
-      <% if reports[2] %>
-        <%= render 'report', object: reports[3] %>
-      <% end %>
-    </div>
-  </div>
   <% end %>
 </div>
 
