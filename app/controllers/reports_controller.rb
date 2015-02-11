@@ -25,7 +25,7 @@ class ReportsController < ApplicationController
       flash[:success] = 'Your report has been submitted.'
       redirect_to root_path
     else
-      redirect_to action: "new"
+      render :new
     end
   end
 
