@@ -5,9 +5,9 @@ class ReportsController < ApplicationController
   def index
     if (params[:agency] && Agency.all.collect(&:name).include?(params[:agency][:name]))
       agency = Agency.where(name: params[:agency][:name]).take
-      @reports = Report.where(agency_id: agency.id)
+      @reports = Report.where(agency_id: agency.id).shuffle
     else
-      @reports = Report.where(verified: true)
+      @reports = Report.where(verified: true).shuffle
     end
   end
 
