@@ -3,13 +3,20 @@
 <div class='row'>
   <div class='col-xs-4 col-xs-offset-8 filter text-right'>
     <form>
+
+      <% if (params[:state] && Report::STATES.include?(params[:state][:name])) %>
+        <%= select("state", "name", Report::STATES, selected: params[:state][:name]) %>
+      <% else %>
+        <%= select("state", "name", Report::STATES, { include_blank: true }) %>
+      <% end %>
       <% if (params[:agency] && Agency.all.collect(&:name).include?(params[:agency][:name])) %>
         <%= select("agency", "name", Agency.all.collect(&:name), selected: params[:agency][:name]) %>
       <% else %>
         <%= select("agency", "name", Agency.all.collect(&:name), { include_blank: true }) %>
-      <% end %>
+      <% end %><br>
       <input type="submit" value="Filter" />
     </form>
+
   </div>
 </div>
 <div class="panel-group">

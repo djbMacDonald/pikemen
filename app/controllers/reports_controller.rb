@@ -3,12 +3,15 @@ class ReportsController < ApplicationController
   before_action :set_report, only: [:verify, :archive, :edit, :update, :destroy]
 
   def index
+    @reports = Report.where(verified: true)
     if (params[:agency] && Agency.all.collect(&:name).include?(params[:agency][:name]))
       agency = Agency.where(name: params[:agency][:name]).take
-      @reports = Report.where(agency_id: agency.id).shuffle
-    else
-      @reports = Report.where(verified: true).shuffle
+      @reports = @reports.where(agency_id: agency.id)
     end
+    if (params[:state] && Report::STATES.include?(params[:state][:name]))
+      @reports = @reports.where(state: params[:state][:name])
+    end
+    @reports = @reports.sort_by(&:incident_date)
   end
 
   def new
