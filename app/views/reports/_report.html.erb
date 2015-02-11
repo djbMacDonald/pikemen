@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-toggle="collapse" data-parent="#accordion" href='<%= "#collapse_#{object.id}" %>'>
+      <%= object.name %></a>
+    </h4>
+  </div>
+  <div id='<%= "collapse_#{object.id}" %>' class="panel-collapse collapse">
+    <div class="panel-body">
+      <%= object.state %>, <%= object.city %><br>
+      Died on: <%= Date::MONTHNAMES[object.incident_date.month] %>
+      <%= object.incident_date.day %>,
+      <%= object.incident_date.year %><br>
+      Killed by: <%= object.agency.name %>
+      Verified by: <%= object.user.username %>
+    </div>
+  </div>
+</div>
