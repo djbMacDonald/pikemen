@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get '/reports/check', to: 'reports#check'
   resources :reports, except: :show
   get '/users/:id', to: 'users#show', as: 'user'
+  get '*path', to: 'welcome#index'
 end
