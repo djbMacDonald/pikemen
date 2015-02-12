@@ -1,4 +1,6 @@
+<!-- Show page for a particular agency. -->
 <h2 class='text-center'>The <%= @agency.name %> has killed:</h2>
+<!-- Panels for each homicide. Split into rows of 4. Panels are collapsible. -->
 <div class="panel-group">
   <% @agency.reports.each_slice(4) do |reports| %>
     <div class='row'>

@@ -1,7 +1,8 @@
 class AgenciesController < ApplicationController
+
+  #Agencies are created by a form in the Report Edit page.
   def create
     @agency = Agency.new(agency_params)
-
     if @agency.save
       flash[:success] = 'Your agency has been submitted.'
       redirect_to :back

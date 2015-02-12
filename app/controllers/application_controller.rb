@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  #add Username to attributes of user at sign up.
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :username
   end

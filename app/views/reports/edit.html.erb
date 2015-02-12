@@ -1,3 +1,5 @@
+<!-- page to validate reports -->
+<!-- I didn't use a partial as there is an extra field here than isn't on new. -->
 <div class='well well-lg col-xs-6'>
 <h2 class='text-center'>Verify Report</h2>
   <%= form_for @report do |f| %>
@@ -7,7 +9,6 @@
         <%= f.text_field :name %>
       </div>
     </div>
-
     <div class='item row'>
       <%= f.label :state %>
       <%= f.select :state, Report::STATES, prompt: 'Pick one' %>
@@ -24,10 +25,11 @@
       <%= f.label :agency_id, 'Agency' %>
       <%= f.collection_select :agency_id, Agency.all, :id, :name, :prompt => "Select an Agency" %>
     </div>
-      <div class='text-center'>
-        <%= f.submit 'Verify Report', class: 'btn btn-lg btn-success' %>
-      </div>
+    <div class='text-center'>
+      <%= f.submit 'Verify Report', class: 'btn btn-lg btn-success' %>
+    </div>
   <% end %>
 </div>
 
+<!-- gives the create agency form on the right side of the page. -->
 <%= render '/agencies/form' %>

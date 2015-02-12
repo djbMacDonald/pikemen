@@ -1,4 +1,6 @@
+<!-- show user page. -->
 <h2 class='text-center'>User <%= @user.username %> has validated the following reports:</h2>
+<!-- shows the verified reports. colapsible panels, 4 per row -->
 <div class="panel-group">
   <% @user.reports.each_slice(4) do |reports| %>
     <div class='row'>

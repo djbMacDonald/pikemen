@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
-  def index
 
+  #home page. is not really an index.
+  def index
   end
 end

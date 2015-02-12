@@ -1,9 +1,11 @@
+<!-- index of validated reports, sorted by date -->
+<!-- can be filtered by state and/or law enforcement agency-->
 <h1>People Killed by Law Enforcement</h1>
 <h2><%= pluralize(@reports.count, 'Verified Case') %></h2>
 <div class='row'>
   <div class='col-xs-4 col-xs-offset-8 filter text-right'>
     <form>
-
+<!-- filter dropdowns. will show the curent filter as default option. -->
       <% if (params[:state] && Report::STATES.include?(params[:state][:name])) %>
         <%= select("state", "name", Report::STATES, selected: params[:state][:name]) %>
       <% else %>
@@ -16,9 +18,9 @@
       <% end %><br>
       <input type="submit" value="Filter" />
     </form>
-
   </div>
 </div>
+<!-- the reports. each in a colapsible panel, 4 per row. -->
 <div class="panel-group">
   <% @reports.each_slice(4) do |reports| %>
     <div class='row'>
