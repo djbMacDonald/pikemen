@@ -34,7 +34,7 @@ class ReportsController < ApplicationController
 
   #index of unverified reports
   def check
-    @reports = Report.where(verified: [false, nil], archived: false)
+    @reports = Report.where(verified: [false, nil], archived: [false, nil])
   end
 
   #page to verified reports
