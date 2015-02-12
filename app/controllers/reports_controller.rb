@@ -49,7 +49,7 @@ class ReportsController < ApplicationController
     else
       @agency = Agency.new
       flash[:failure] = 'All fields must be filled out in order to verify.'
-      render :new
+      render :edit
     end
   end
 

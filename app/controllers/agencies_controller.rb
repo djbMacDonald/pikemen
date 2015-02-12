@@ -7,6 +7,7 @@ class AgenciesController < ApplicationController
       flash[:success] = 'Your agency has been submitted.'
       redirect_to :back
     else
+      flash[:failure] = 'A name and jurisdiction level are required.'
       redirect_to :back
     end
   end
