@@ -17,10 +17,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-// * {
-//   border: solid blue 1px;
-// }
-
 .main {
   height: 100px;
   width: 100%;
@@ -38,38 +34,34 @@ img {
 #report_city {
   width: 50%;
 }
-.item {
+.item, .filter, .entry {
   margin-bottom: 20px;
 }
- .top {
+ .top, .entry {
   font-size: 20px;
  }
-.entry {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
 .entry > a {
   text-decoration: none;
   color: black;
 }
-.filter {
-  margin-bottom: 20px;
-}
 .veri {
   width: 120%;
 }
-
 .panel-group .panel {
   border: none;
 }
-
 .panel-group .panel-heading, .panel-body {
   background-color: #c7c7c7;
 }
 .panel-group .panel-heading {
   border-radius: 10px 10px 0 0;
 }
-
 .panel-group .panel-body {
   font-size: 12px;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  background: #c7c7c7;
+  width:100%;
 }

@@ -25,6 +25,7 @@ class ReportsController < ApplicationController
       flash[:success] = 'Your report has been submitted.'
       redirect_to root_path
     else
+      flash[:failure] = 'Name, State, and City are all required in order to submit a report'
       render :new
     end
   end
@@ -39,11 +40,12 @@ class ReportsController < ApplicationController
 
   def update
     if @report.update_attributes(veri_params)
-      # flash[:success] = 'Report verified'
+      flash[:success] = 'Report verified'
       redirect_to reports_check_path
     else
       @agency = Agency.new
-      redirect_to action: "edit", id: @report.id
+      flash[:failure] = 'All fields must be filled out in order to verify.'
+      render :new
     end
   end
 
