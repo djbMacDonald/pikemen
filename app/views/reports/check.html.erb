@@ -2,13 +2,13 @@
 <h1>Unvalidated Reports</h1>
 <% @reports.each do |report| %>
   <div class='panel row'>
-    <div class='col-xs-2'>
+    <div class='col-lg-2 col-sm-3'>
       <%= report.name %>
     </div>
-    <div class='col-xs-1'>
+    <div class='col-lg-1 col-xs-3'>
         <%= link_to 'Verify', edit_report_path(report), class: 'btn btn-success veri' %>
     </div>
-    <div class='col-xs-1'>
+    <div class='col-lg-1 col-xs-3'>
       <%= link_to 'Archive', report, method: :delete, class: 'btn btn-warning veri' %>
     </div>
   </div>

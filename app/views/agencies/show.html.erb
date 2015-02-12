@@ -4,23 +4,23 @@
 <div class="panel-group">
   <% @agency.reports.each_slice(4) do |reports| %>
     <div class='row'>
-      <div class='col-sm-3 entry'>
+      <div class='col-sm-3 col-xs-6 entry'>
         <% if reports[0] %>
           <%= render 'reports/report', object: reports[0] %>
         <% end %>
       </div>
-      <div class='col-sm-3 entry'>
+      <div class='col-sm-3 col-xs-6 entry'>
         <% if reports[1] %>
           <%= render 'reports/report', object: reports[1] %>
         <% end %>
       </div>
-      <div class='col-sm-3 entry'>
+      <div class='col-sm-3 col-xs-6 entry'>
         <% if reports[2] %>
           <%= render 'reports/report', object: reports[2] %>
         <% end %>
       </div>
-      <div class='col-sm-3 entry'>
-        <% if reports[2] %>
+      <div class='col-sm-3 col-xs-6 entry'>
+        <% if reports[3] %>
           <%= render 'reports/report', object: reports[3] %>
         <% end %>
       </div>
